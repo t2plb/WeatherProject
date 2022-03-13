@@ -2,30 +2,28 @@ import datetime
 import json
 import requests
 import time
-
-date = datetime.datetime.today().strftime('%Y-%m-%d %H%M%S')
-nom = "C:/Users/titou/Projet/ProjetMeteo/json/" + date + '.json'
+import Adafruit_DHT
 
 def loop():
-    
+
+    cap = Adafruit_DHT.DHT11
+    pin = 23
     date = datetime.datetime.today().strftime('%Y-%m-%d %H%M%S')
-    nom = "C:/Users/titou/Projet/ProjetMeteo/json/" + date + '.json'
+    nom = "/home/pi/WeatherProject/json" + date + '.json'
     
-    Temperature = int(12)
-    Pression = int(1023)
-    Hygrometrie = int(50)
+    Temperature, Humidite = Adafruit_DHT.read_retry(cap, pin)
     
     data = {
         "Date": date,
         "Temperature": Temperature,
-        "Pression": Pression,
-        "Hygrometrie": Hygrometrie
+        "Humidite": Humidite
         }
         
     DumpedData = json.dumps(data)
     
-    req = requests.post('http://x.x.x.x/post', DumpedData)
-    
+    req = requests.post('http://X.X.X.X/post.php', params=DumpedData)
+    print(req.status_code)
+    time.sleep(5)
     if req.status_code != 200:
         with open(nom, 'w') as file:
             json.dump(data, file)
