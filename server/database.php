@@ -4,7 +4,7 @@ function openDatabase(){
 
     global $bdd;
 
-    $bdd = new PDO('mysql:host=192.168.1.183;dbname=meteo;charset=utf8', 'createur', 'creat0r0taerc');
+    $bdd = new PDO('mysql:host=localhost;dbname=meteo;charset=utf8', 'root', 'toor');
     $bdd->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
 
