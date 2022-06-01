@@ -33,3 +33,9 @@ function LireDonnee($from, $to){
 
     return $stmt;
 }
+
+function getSondes(){
+
+    ///
+    return $stmt->fecth();
+}

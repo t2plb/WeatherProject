@@ -1,0 +1,22 @@
+.saut-de-ligne{
+    height: 50px;
+}
+
+#github {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+#GifIndex {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    position: center;
+}
+.gif {
+    width: 100%;
+    height: 100%;
+    background-color: #3398FE;
+}
