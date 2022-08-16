@@ -1,3 +1,4 @@
+import os
 import datetime
 import json
 import requests
@@ -5,12 +6,16 @@ import time
 import Adafruit_DHT
 
 url = 'http://127.0.0.1/post.php'
+
+if not os.path.exists('./json'):
+    os.makedirs('./json')
+
 def loop():
 
     cap = Adafruit_DHT.DHT11
     pin = 23
     date = datetime.datetime.today().strftime('%Y-%m-%d %H%M%S')
-    nom = "/home/pi/WeatherProject/json/" + date + '.json'
+    nom = "./json/" + date + '.json'
     
     Temperature, Humidite = Adafruit_DHT.read_retry(cap, pin)
     
