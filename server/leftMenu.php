@@ -14,28 +14,47 @@ if(isset($_GET['page'])){
                 <h2>METEO</h2>
                 <ul>
                     <?php
-                    if($page != 'sonde'){
-                        echo '<li><a href="index.php?page=sonde">Mes Sondes</a></li>';
-                    }
+                        if($page != 'home')
                     ?>
+                    <li>
+                        <a href="index.php?page=home">Accueil</a>
+                    </li>
                     <?php
                         if($page != 'sonde'):
                     ?>
                     <li>
-                        <a href="index.php?page=sonde">Mes Sondes</a>
+                        <a href="#">Mes Sondes</a>
                     </li>
                     <?php
                     endif;
                     ?>
+                    <?php
+                        if($page != 'graphiques'):
+                    ?>
                     <li>
-                        <a href="meteo.html">Graphiques</a>
+                        <a href="index.php?page=graphiques">Graphiques</a>
                     </li>
+                    <?php
+                    endif;
+                    ?>
+                    <?php
+                        if($page != 'contact'):
+                    ?>
                     <li>
-                        <a >Contact</a>
+                        <a href="#">Contact</a>
                     </li>
+                    <?php
+                    endif;
+                    ?>
+                    <?php
+                        if($page != 'aide'):
+                    ?>
                     <li>
-                        <a >Aide</a>
+                        <a href="#">Aide</a>
                     </li>
+                    <?php
+                    endif;
+                    ?>
                 </ul>
             </div>
         </div>

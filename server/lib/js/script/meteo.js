@@ -1,7 +1,7 @@
 function initChart(){
-    const ctxtemp = $("#ChartTemp");
-    const ctxhumi = $("#ChartHumi");
-    window.myChart = new Chart(ctxtemp, {
+    const ctxtemp = $("#chartTemp");
+    const ctxhumi = $("#chartHumid");
+    window.MyChart = new Chart(ctxtemp, {
         type: 'line',
         data: {
             datasets: [
@@ -29,50 +29,15 @@ function getData(){
     let from=moment.tz($('#dpFrom').datetimepicker('getValue'), 'Europe/Paris').unix(); //timestamp
     let to=moment.tz($('#dpTo').datetimepicker('getValue'), 'Europe/Paris').unix(); //timestamp
 
-    console.log(`/reader.php?from=${from}&to=${to}`);
-    $.get(`/reader.php?from=${from}&to=${to}`, function(values){
+    console.log(`/api/reader.php?from=${from}&to=${to}`);
+    $.get(`/api/reader.php?from=${from}&to=${to}`, function(values){
         console.log(values);
-        //TODO charjs
         let datas = jQuery.parseJSON(values);
 
         removeData(window.myChart);
         removeData(window.ChartHumi);
         addData(window.myChart, datas.map(d => d.date), datas.map(d => d.temperature));
         addData(window.ChartHumi, datas.map(d => d.date), datas.map(d => d.humidite));
-        /*
-        datas.forEach(function(d){
-            addData(window.myChart, d.date, d.temperature);
-        });
-         */
-
-        /*
-        let myChart = new Chart(ctxtemp, {
-            type: 'line',
-            data: {
-                labels: datas.map(d => d.date),
-                datasets: [
-                    {
-                        label: 'Température',
-                        data: datas.map(d => d.temperature),
-                        borderColor: 'rgb(250,0,0)'
-                    }
-                ]
-            }
-        });
-        let ChartHumi = new Chart(ctxhumi, {
-            type: 'line',
-            data: {
-                labels: datas.map(d => d.date),
-                datasets: [
-                    {
-                        label: 'Humidité',
-                        data: datas.map(d => d.humidite),
-                        borderColor: 'rgb(252,219,5)',
-                    }
-                ]
-            }
-        });
-         */
     });
 }
 

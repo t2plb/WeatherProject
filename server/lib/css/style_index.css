@@ -10,13 +10,55 @@
     margin-left: auto;
 }
 #GifIndex {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    position: center;
+    width: 30%;
 }
+
+#GifMeteo {
+    width: 15%;
+    margin-right: 0%;
+}
+
 .gif {
     width: 100%;
+}
+.gif-h75 {
+    height: 75%;
+}
+.gif-h100 {
     height: 100%;
+}
+.gif-blue {
     background-color: #3398FE;
+}
+.gif-yellow {
+    background-color: #FFF05E;
+}
+.gif-center {
+    text-align: center;
+}
+.row-yellow {
+    display: inline-flex;
+    width: 100%;
+}
+.col-50 {
+    width: 50%;
+}
+.text-end {
+    text-align: end;
+}
+.chart {
+    max-width: 50%;
+}
+.flex {
+    display: flex;
+}
+
+.date-form {
+    padding-left: 1em;
+    padding-top: 1em;
+
+}
+footer {
+    display: flex;
+    margin-left: 50%;
 }

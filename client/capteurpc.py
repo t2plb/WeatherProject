@@ -1,16 +1,22 @@
+import os
 import datetime
 import json
+import random
 import requests
 import time
 
 url = 'http://127.0.0.1/post.php'
+
+if not os.path.exists('./json'):
+    os.makedirs('./json')
+
 def loop():
 
     date = datetime.datetime.today().strftime('%Y-%m-%d %H%M%S')
-    nom = "C:/Users/titou/Projet/ProjetMeteo/json/" + date + '.json'
+    nom = "./json/" + date + '.json'
 
-    Temperature = int(12)
-    Humidite = int(50)
+    Temperature = random.randint(0, 51)
+    Humidite = random.randint(0, 101)
     
     data = {
         "datetime": date,
