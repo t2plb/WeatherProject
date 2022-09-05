@@ -34,9 +34,9 @@ function getData(){
         console.log(values);
         let datas = jQuery.parseJSON(values);
 
-        removeData(window.myChart);
+        removeData(window.MyChart);
         removeData(window.ChartHumi);
-        addData(window.myChart, datas.map(d => d.date), datas.map(d => d.temperature));
+        addData(window.MyChart, datas.map(d => d.date), datas.map(d => d.temperature));
         addData(window.ChartHumi, datas.map(d => d.date), datas.map(d => d.humidite));
     });
 }
@@ -58,6 +58,7 @@ function addData(chart, label, value) {
 }
 
 function removeData(chart) {
+    console.error(chart);
     chart.data.labels.pop();
     chart.data.datasets.forEach((dataset) => {
         dataset.data.pop();
