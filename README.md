@@ -58,7 +58,7 @@ sudo systemctl status WeatherClient.service //pour verifier le bon lancement du 
 git clone https://github.com/t2plb/WeatherProject.git
 ``` 
 
-* Supprimez les fichiers client pour garder uniquement le dossier client<br>
+* Supprimez les fichiers client pour garder uniquement le dossier server<br>
 ```
 cd /votre/chemin/de/fichier/WeatherProject/
 sudo rm -r client/
