@@ -41,6 +41,16 @@ sudo python3 -m pip install --upgrade pip setuptools wheel
 sudo pip3 install Adafruit_DHT
 ```
 
+* Installer le service qui fera tourner votre script
+Pensez bien à mettre votre chemin du capteur.py dans le WeatherClient.service (ligne 6)
+```
+sudo mv WeatherProject/client/service/* /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable WeatherClient.service
+sudo systemctl start WeatherClient.service
+sudo systemctl status WeatherClient.service //pour verifier le bon lancement du service
+```
+
 <h3> Serveur </h3>
 
 * Clonez le projet sur votre serveur<br>
