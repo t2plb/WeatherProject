@@ -1,7 +1,0 @@
-[Unit]
-Description=WeatherClient
-After=network.target
- 
-[Service]
-ExecStart=sudo python3 /file/path/capteur.py
-Type=oneshot
